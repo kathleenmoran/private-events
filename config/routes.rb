@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
   devise_for :users
+  root "events#index"
 end
