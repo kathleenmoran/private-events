@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root "events#index"
+  resources :events, only: %i[new create index]
 end

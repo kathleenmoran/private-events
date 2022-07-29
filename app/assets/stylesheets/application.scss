@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ .card {
+  max-width: 600px;
+  background-color: lightgray;
+ }
+
+ .alert-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 1;
+  min-height: 90px;
+ }
+
+ textarea {
+  height: 200px;
+ }
+
+ .new-btn {
+  padding-top: 0px;
+  padding-bottom: 0px;
+ }
