@@ -21,6 +21,17 @@
   background-color: lightgray;
  }
 
+ .all-events {
+  max-width: 1000px;
+ }
+
+ .events-container {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  row-gap: 10px;
+  column-gap: 10px;
+ }
+
  .alert-container {
   display: flex;
   align-items: stretch;
@@ -37,4 +48,8 @@
  .new-btn {
   padding-top: 0px;
   padding-bottom: 0px;
+ }
+
+ .card-text {
+  padding: 10px 0px;
  }

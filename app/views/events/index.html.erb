@@ -1,9 +1,25 @@
-<h1>Events</h1>
-
-<% @events.each do |event| %>
-  <div>
-    <h2> <%= event.name %> </h2>
-    <p>When: <%= event.time %> </p>
-    <p>Where: <%= event.location %> </p>
+<div class="all-events mx-auto">
+  <h1>All Events</h1>
+  <div class="events-container">
+    <% @events.each do |event| %>
+      <div class="card event">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.name %></h5>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">When: </div>
+            <div class="ml-1"><%= event.time.strftime("%b %d, %Y %I:%M %p") %></div>
+          </div>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">Where: </div>
+            <div class="ml-1"><%= event.location %></div>
+          </div>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">Created by: </div>
+            <div class="ml-1"><%= event.creator.username %></div>
+          </div>
+          <a href="#" class="btn btn-primary mt-1">See details</a>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
