@@ -1,0 +1,19 @@
+<div class="card mx-auto p-3">
+  <h1 class="card-title"><%= @event.name %></h1>
+  <div class="card-text d-flex gap-1 h4">
+    <div class="fw-bold">When: </div>
+    <div class="ml-1"><%= @event.time.strftime("%b %d, %Y %I:%M %p") %></div>
+  </div>
+  <div class="card-text d-flex gap-1 h4">
+    <div class="fw-bold">Where: </div>
+    <div class="ml-1"><%= @event.location %></div>
+  </div>
+  <div class="card-text d-flex gap-1 h4">
+    <div class="fw-bold">Created by: </div>
+    <div class="ml-1"><%= @event.creator.username %></div>
+  </div>
+  <div class="card-text d-flex gap-1 h4">
+    <div class="fw-bold">Description: </div>
+    <div class="ml-1"><%= @event.description %></div>
+  </div>
+</div>

@@ -3,6 +3,10 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = Event.new
   end
@@ -20,5 +24,5 @@ end
 private
 
 def allowed_post_params
-  params.require(:event).permit(:name, :location, :time)
+  params.require(:event).permit(:name, :location, :time, :description)
 end

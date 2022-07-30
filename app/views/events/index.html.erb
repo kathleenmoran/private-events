@@ -3,7 +3,7 @@
   <div class="events-container">
     <% @events.each do |event| %>
       <div class="card event">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title"><%= event.name %></h5>
           <div class="card-text d-flex gap-1">
             <div class="fw-bold">When: </div>
@@ -17,7 +17,7 @@
             <div class="fw-bold">Created by: </div>
             <div class="ml-1"><%= event.creator.username %></div>
           </div>
-          <a href="#" class="btn btn-primary mt-1">See details</a>
+          <%= link_to "See details", event_path(event), class: "btn btn-primary mt-auto" %>
         </div>
       </div>
     <% end %>

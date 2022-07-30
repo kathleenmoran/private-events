@@ -16,6 +16,11 @@
       <%= f.text_field :location, autofocus: true, autocomplete: "location", placeholder: "Location", class: "form-control" %>
     </div>
 
+    <div class="mb-3 pb-3">
+      <%= f.label :description, hidden: true, class: "form-label" %>
+      <%= f.text_area :description, autofocus: true, autocomplete: "description", placeholder: "Description", class: "form-control" %>
+    </div>
+
     <div class="actions d-grid gap-2 pb-3">
       <%= f.submit "Create event", class: "btn btn-success" %>
     </div>
