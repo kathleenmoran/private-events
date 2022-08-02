@@ -1,4 +1,9 @@
 class Event < ApplicationRecord
+  validates :name, presence: true, length: { in: 1..50 }
+  validates :description, presence: true, length: { in: 1..200 }
+  validates :time, presence: true
+  validates :location, presence: true, length: { in: 1..50 }
+
   scope :future, -> { where('time > ?', DateTime.now) }
   scope :past, -> { where('time <= ?', DateTime.now) }
 

@@ -1,0 +1,3 @@
+<% if object.errors.any? %>
+  <p class="alert alert-danger m-2"><%= object.errors.full_messages.join(', ').capitalize %>.</p>
+<% end %>
