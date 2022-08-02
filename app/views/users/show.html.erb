@@ -1,5 +1,5 @@
-<%= render "events/cards", :events => @user.attended_events.where('time > ?', DateTime.now), :title => "Events You're Attending", :subtitle => "Upcoming Events" %>
+<%= render "events/cards", :events => @user.attended_events.future, :title => "Events You're Attending", :subtitle => "Upcoming Events" %>
 
 <div class="mt-5">
-  <%= render "events/cards", :events => @user.hosted_events.where('time <= ?', DateTime.now), :title => "", :subtitle => "Past Events" %>
+  <%= render "events/cards", :events => @user.hosted_events.past, :title => "", :subtitle => "Past Events" %>
 </div>
