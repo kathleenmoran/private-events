@@ -23,7 +23,7 @@
             <a class="nav-link" href="/events">All Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Your Events</a>
+            <%= link_to "Your Events", user_path(current_user), class: "nav-link" %>
           </li>
         </ul>
 

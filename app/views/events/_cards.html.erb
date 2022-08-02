@@ -1,0 +1,28 @@
+<div class="all-events mx-auto">
+  <h1 class="mb-5"><%= title %></h1>
+  <h2><%= subtitle %></h2>
+  <div class="events-container">
+    <% events.each do |event| %>
+      <div class="card event">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title"><%= event.name %></h5>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">When: </div>
+            <div class="ml-1"><%= event.time.strftime("%b %d, %Y %I:%M %p") %></div>
+          </div>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">Where: </div>
+            <div class="ml-1"><%= event.location %></div>
+          </div>
+          <div class="card-text d-flex gap-1">
+            <div class="fw-bold">Created by: </div>
+            <div class="ml-1"><%= event.creator.username %></div>
+          </div>
+          <div class="d-flex flex-column gap-1 mt-auto">
+            <%= link_to "See details", event_path(event), class: "btn btn-primary mt-auto" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
