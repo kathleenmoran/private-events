@@ -1,9 +1,12 @@
-<div class="card mx-auto p-3">
-  <div class="d-flex justify-content-between align-items-start flex-nowrap">
-    <h1 class="card-title"><%= @event.name %></h1>
+<div class="card mx-auto p-3 text-wrap">
+  <div class="d-flex justify-content-between align-items-start flex-wrap card-body">
+    <h1 class="card-title text-wrap"><%= @event.name %></h1>
     <% if user_signed_in? %>
       <% if current_user.owns?(@event) %>
-        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary"%>
+        <div class="d-flex gap-1">
+          <%= link_to "Edit", edit_event_path(@event), class: "btn btn-primary" %>
+          <%= button_to "Delete", event_path(@event), method: :delete, class: "btn btn-danger" %>
+        </div>
       <% else %>
         <% if current_user.attending?(@event) %>
           <%= button_to "Leave event", event_attendee_path(current_user.find_event_relationship(@event)), method: :delete, class: "btn btn-danger d-flex flex-nowrap" %>
@@ -13,26 +16,32 @@
       <% end %>
     <% end %>
   </div>
-  <div class="card-text d-flex gap-1 h4">
-    <div class="fw-bold">When: </div>
-    <div class="ml-1"><%= @event.time.strftime("%b %d, %Y %I:%M %p") %></div>
-  </div>
-  <div class="card-text d-flex gap-1 h4">
-    <div class="fw-bold">Where: </div>
-    <div class="ml-1"><%= @event.location %></div>
-  </div>
-  <div class="card-text d-flex gap-1 h4">
-    <div class="fw-bold">Created by: </div>
-    <div class="ml-1"><%= @event.creator.username %></div>
-  </div>
-  <div class="card-text d-flex gap-1 h4">
-    <div class="fw-bold">Description: </div>
-    <div class="ml-1"><%= @event.description %></div>
-  </div>
-  <div class="fw-bold h4">Attendees: </div>
-  <ul class="h4">
-    <% @event.attendees.each do |attendee| %>
-      <li> <%= attendee.username %> </li>
+  <div class="info-container card-body">
+    <div class="card-text h4">
+      <div class="fw-bold">When:</div>
+      <div class="ml-1"><%= @event.time.strftime("%b %d, %Y %I:%M %p") %></div>
+    </div>
+    <div class="card-text h4">
+      <div class="fw-bold">Where:</div>
+      <div class="ml-1"><%= @event.location %></div>
+    </div>
+    <div class="card-text h4">
+      <div class="fw-bold">Created by:</div>
+      <div class="ml-1"><%= @event.creator.username %></div>
+    </div>
+    <div class="card-text h4">
+      <div class="fw-bold">Description:</div>
+      <div class="ml-1"><%= @event.description %></div>
+    </div>
+    <div class="fw-bold h4">Attendees:</div>
+    <% if @event.attendees.empty? %>
+      <div class="h4">None</div>
+    <% else %>
+      <ul class="h4">
+        <% @event.attendees.each do |attendee| %>
+          <li> <%= attendee.username %> </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
+  </div>
 </div>

@@ -35,6 +35,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to events_path, notice: 'Your post was successfully deleted.'
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def allowed_post_params
