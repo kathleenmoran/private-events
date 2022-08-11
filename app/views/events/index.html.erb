@@ -1,3 +1,7 @@
-<%= render "cards", :events => user_signed_in? ? @events.future : @events.future_signed_out, :title => "All Events", :subtitle => "Upcoming Events" %>
+<% if @events.empty? %>
+  <p class="fw-light text-center my-5">No events have been posted.</p>
+<% else %>
+  <%= render "cards", :events => user_signed_in? ? @events.future : @events.future_signed_out, :title => "All Events", :subtitle => "Upcoming Events" %>
 
-<%= render "cards", :events => user_signed_in? ? @events.past : @events.future_signed_out, :title => "", :subtitle => "Past Events" %>
+  <%= render "cards", :events => user_signed_in? ? @events.past : @events.future_signed_out, :title => "", :subtitle => "Past Events" %>
+<% end %>

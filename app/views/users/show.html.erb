@@ -1,5 +1,15 @@
-<%= render "events/cards", :events => @user.attended_events.future, :title => "Events You're Attending", :subtitle => "Upcoming Events" %>
+<% if @user.attended_events.empty? && @user.hosted_events.empty? %>
+  <p class="fw-light text-center my-5">You don't have any events.</p>
+<% else %>
+  <%= render "events/cards", :events => @user.attended_events.future, :title => "Events You're Attending", :subtitle => "Upcoming Events" %>
 
-<div class="mt-5">
-  <%= render "events/cards", :events => @user.hosted_events.past, :title => "", :subtitle => "Past Events" %>
-</div>
+  <div class="mt-5">
+    <%= render "events/cards", :events => @user.attended_events.past, :title => "", :subtitle => "Past Events" %>
+  </div>
+
+  <%= render "events/cards", :events => @user.hosted_events.future, :title => "Events You're Hosting", :subtitle => "Upcoming Events" %>
+
+  <div class="mt-5">
+    <%= render "events/cards", :events => @user.hosted_events.past, :title => "", :subtitle => "Past Events" %>
+  </div>
+<% end %>
