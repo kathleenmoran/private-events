@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   has_many :attended_events, through: :event_attendees, source: :event
 
-  def attending?(event_id)
-    attended_events.exists?(id: event_id)
+  def attending?(event)
+    attended_events.exists?(id: event.id)
   end
 
   def find_event_relationship(event)
@@ -20,6 +20,6 @@ class User < ApplicationRecord
   end
 
   def owns?(event)
-    event.creator == self
+    event.creator.id == id
   end
 end

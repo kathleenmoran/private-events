@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create new]
+  before_action :authenticate_user!, only: %i[create new edit update]
 
   def index
     @events = Event.all
@@ -16,15 +16,28 @@ class EventsController < ApplicationController
   def create
     @event = current_user.hosted_events.build(allowed_post_params)
     if @event.save
-      redirect_to new_event_path, notice: 'Your post was successfully created.'
+      redirect_to event_path(@event), notice: 'Your post was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
-end
 
-private
+  def edit
+    @event = Event.find(params[:id])
+  end
 
-def allowed_post_params
-  params.require(:event).permit(:name, :location, :time, :description)
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(allowed_post_params)
+      redirect_to event_path(@event), notice: 'Your post was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def allowed_post_params
+    params.require(:event).permit(:name, :location, :time, :description)
+  end
 end
