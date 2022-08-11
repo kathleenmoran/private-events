@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def find_event_relationship(event)
     event_attendees.find_by(event_id: event.id)
   end
+
+  def owns?(event)
+    event.creator == self
+  end
 end
