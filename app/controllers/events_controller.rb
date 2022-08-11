@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[create new edit update]
-
+  
   def index
     @events = Event.all
   end
@@ -47,6 +47,6 @@ class EventsController < ApplicationController
   private
 
   def allowed_post_params
-    params.require(:event).permit(:name, :location, :time, :description)
+    params.require(:event).permit(:name, :location, :time, :description, :private)
   end
 end

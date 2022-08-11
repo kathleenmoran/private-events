@@ -21,6 +21,11 @@
       <%= f.text_area :description, autofocus: true, autocomplete: "description", placeholder: "Description", class: "form-control" %>
     </div>
 
+    <div class="mb-3 pb-3">
+      <%= f.label :private, "Private" %>
+      <%= f.check_box :private, autofocus: true, autocomplete: "private", class: "form-check-input mx-2" %>
+    </div>
+
     <div class="actions d-grid gap-2 pb-3">
       <%= f.submit "#{action} event", class: "btn btn-success" %>
     </div>

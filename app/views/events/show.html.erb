@@ -18,6 +18,10 @@
   </div>
   <div class="info-container card-body">
     <div class="card-text h4">
+      <div class="fw-bold">Type:</div>
+      <div class="ml-1"><%= @event.private ? "Private" : "Public" %></div>
+    </div>
+    <div class="card-text h4">
       <div class="fw-bold">When:</div>
       <div class="ml-1"><%= @event.time.strftime("%b %d, %Y %I:%M %p") %></div>
     </div>
