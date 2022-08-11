@@ -1,4 +1,4 @@
-<% if @events.empty? %>
+<% if (user_signed_in? && @events.empty?) || (!user_signed_in? && @events.not_private.empty?) %>
   <p class="fw-light text-center my-5">No events have been posted.</p>
 <% else %>
   <%= render "cards", :events => user_signed_in? ? @events.future : @events.future_signed_out, :title => "All Events", :subtitle => "Upcoming Events" %>

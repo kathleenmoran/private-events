@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   scope :past, -> { where('time <= ?', DateTime.now) }
   scope :future_signed_out, -> { where('time > ? AND NOT private', DateTime.now) }
   scope :past_signed_out, -> { where('time <= ? AND NOT private', DateTime.now) }
+  scope :not_private, -> { where('NOT private') }
 
   belongs_to :creator, class_name: 'User'
 
