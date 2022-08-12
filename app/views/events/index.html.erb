@@ -3,5 +3,5 @@
 <% else %>
   <%= render "cards", :events => user_signed_in? ? @events.future : @events.future_signed_out, :title => "All Events", :subtitle => "Upcoming Events" %>
 
-  <%= render "cards", :events => user_signed_in? ? @events.past : @events.future_signed_out, :title => "", :subtitle => "Past Events" %>
+  <%= render "cards", :events => user_signed_in? ? @events.past : @events.past_signed_out, :title => (user_signed_in? && @events.future.empty?) || (!user_signed_in? && @events.future_signed_out.empty? ) ? "All Events" : "", :subtitle => "Past Events" %>
 <% end %>

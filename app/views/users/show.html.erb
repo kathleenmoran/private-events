@@ -4,12 +4,12 @@
   <%= render "events/cards", :events => @user.attended_events.future, :title => "Events You're Attending", :subtitle => "Upcoming Events" %>
 
   <div class="mt-5">
-    <%= render "events/cards", :events => @user.attended_events.past, :title => "", :subtitle => "Past Events" %>
+    <%= render "events/cards", :events => @user.attended_events.past, :title => @user.attended_events.future.empty? ? "Events You're Attending" : "", :subtitle => "Past Events" %>
   </div>
 
   <%= render "events/cards", :events => @user.hosted_events.future, :title => "Events You're Hosting", :subtitle => "Upcoming Events" %>
 
   <div class="mt-5">
-    <%= render "events/cards", :events => @user.hosted_events.past, :title => "", :subtitle => "Past Events" %>
+    <%= render "events/cards", :events => @user.hosted_events.past, :title => (@user.hosted_events.future.empty? ? "Events You're Hosting" : ""), :subtitle => "Past Events" %>
   </div>
 <% end %>

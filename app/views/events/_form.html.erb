@@ -23,6 +23,7 @@
 
     <div class="mb-3 pb-3">
       <%= f.label :private, "Private" %>
+      <%= f.hidden_field :private %>
       <%= f.check_box :private, autofocus: true, autocomplete: "private", class: "form-check-input mx-2" %>
     </div>
 
