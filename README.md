@@ -6,6 +6,8 @@ See a live version of this website [here](http://private-events.club/). Sign in 
 
 ## Demo
 
+https://user-images.githubusercontent.com/43465901/184425743-b55d6ea6-8d6c-4b03-95f4-0311de46162c.mov
+
 ## Features
 
 * Users can create, edit, and delete events
