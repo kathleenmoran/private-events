@@ -19,7 +19,7 @@ See a live version of this website [here](http://private-events.club/). Sign in 
 
 To view the live site, go [here](http://private-events.club/). Sign in with the email `benjaminfranklin@gmail.com` and password `benjaminfranklin` to view an account that has already been created.
 
-To run locally you must have [Ruby]() and [Ruby on Rails]() installed. This application was written Ruby 3.1 and Ruby on Rails 7.
+To run locally you must have [Ruby]https://www.ruby-lang.org/en/downloads/) and [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) installed. This application was written Ruby 3.1 and Ruby on Rails 7.
 
 If you have Ruby and Ruby on Rails installed, clone this repo:
 ```
