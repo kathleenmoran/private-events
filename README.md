@@ -2,7 +2,7 @@
 
 A website where users can sign-up for and create events.
 
-See a live version of this website [here](http://private-events.club/).
+See a live version of this website [here](http://private-events.club/). Sign in with the email `benjaminfranklin@gmail.com` and password `benjaminfranklin` to view an account that has already been created.
 
 ## Demo
 
@@ -17,7 +17,7 @@ See a live version of this website [here](http://private-events.club/).
 
 ## How to Use
 
-To view tthe live site, go [here](http://private-events.club/).
+To view the live site, go [here](http://private-events.club/). Sign in with the email `benjaminfranklin@gmail.com` and password `benjaminfranklin` to view an account that has already been created.
 
 To run locally you must have [Ruby]() and [Ruby on Rails]() installed. This application was written Ruby 3.1 and Ruby on Rails 7.
 
