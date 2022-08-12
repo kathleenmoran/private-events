@@ -4,10 +4,10 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :location, presence: true, length: { in: 1..50 }
 
-  scope :future, -> { where('time > ? ORDER BY time ASC', DateTime.now) }
-  scope :past, -> { where('time <= ? ORDER BY time DESC', DateTime.now) }
-  scope :future_signed_out, -> { where('time > ? AND NOT private ORDER BY time DESC', DateTime.now) }
-  scope :past_signed_out, -> { where('time <= ? AND NOT private ORDER BY time ASC', DateTime.now) }
+  scope :future, -> { where('time > ?', DateTime.now).order(time: :desc) }
+  scope :past, -> { where('time <= ?', DateTime.now).order(:time) }
+  scope :future_signed_out, -> { where('time > ? AND NOT private', DateTime.now).order(time: :desc) }
+  scope :past_signed_out, -> { where('time <= ? AND NOT private', DateTime.now).order(:time) }
   scope :not_private, -> { where('NOT private') }
 
   belongs_to :creator, class_name: 'User'
