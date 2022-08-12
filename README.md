@@ -5,7 +5,7 @@ A website where users can sign-up for and create events.
 See a live version of this website [here](http://private-events.club/). Sign in with the email `benjaminfranklin@gmail.com` and password `benjaminfranklin` to view an account that has already been created.
 
 ## Demo
-
+![Demo](https://www.youtube.com/watch?v=ClUHwq_lYdY)
 ## Features
 
 * Users can create, edit, and delete events
